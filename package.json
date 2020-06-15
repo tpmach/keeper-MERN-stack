@@ -1,0 +1,17 @@
+{
+  "name": "keeper-mern-stack",
+  "version": "1.0.0",
+  "description": "This is the keeper web application using MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Thi Mach",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  }
+}
