@@ -10,6 +10,7 @@ const MONGODB_URL = 'mongodb://localhost:27017/noteKeeperDB'
 const app = express()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
 app.use('/api', router)
 
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })

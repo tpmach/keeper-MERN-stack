@@ -1,12 +1,11 @@
 const express = require ('express')
 const Note = require('../models/note')
-const { response } = require('express')
 
 const router = express.Router()
 
 // MARK: Read - Get all notes
 router.get('/notes', (req, res) => {
-  Note.find( (err, notes) => {
+  Note.find((err, notes) => {
     res.json(notes)
   })
 })
@@ -25,13 +24,14 @@ router.get('/notes/:id', (req, res) => {
 // MARK: Create - Post a new note
 router.post('/notes', (req, res) => {
   let note = new Note(req.body)
+  console.log(note)
   note.save()
     .then(note => {
       res.send(note)
     })
-    .catch(err => {
+    .catch(error => {
       res.status(422).send('Note add failed')
-    })
+    }) 
 })
 
 // MARK: Update - update a specific note
