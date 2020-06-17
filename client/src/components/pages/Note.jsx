@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from '@material-ui/icons/Edit';
+import { Link } from 'react-router-dom'
+import Fab from "@material-ui/core/Fab";
 
 //2. Implement the delete note functionality.
 //- Callback from the Note component to trigger a delete function.
@@ -17,14 +18,17 @@ function Note(props){
     <div className="note">
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClicked}>
+      <Fab onClick={handleClicked}>
         <DeleteIcon />
-      </button>
-      <button>
-        <EditIcon />
-      </button>
+      </Fab>
+      <Fab>
+        <Link to={`/notes/${props.id}/edit`}>
+          <EditIcon style = {{color: "#f5ba13"}}/>   
+        </Link> 
+      </Fab>
     </div>
   )
 }
 
 export default Note
+

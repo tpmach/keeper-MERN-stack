@@ -29,7 +29,7 @@ function NotesList(props) {
       console.log(error)
     }
   }
-  
+
   return (
     <div>
       <NoteAdd />

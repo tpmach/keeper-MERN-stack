@@ -10,7 +10,10 @@ import CreateArea from '../pages/CreateArea'
 //- Take array and render seperate Note components for each item.
 
 function NoteAdd(props) {
-  const [note, setNote] = useState({})
+  const [note, setNote] = useState({
+    title:"",
+    content:""
+  })
 
   function handleChange(event){
     setNote({ ...note, [event.target.name]: event.target.value })
