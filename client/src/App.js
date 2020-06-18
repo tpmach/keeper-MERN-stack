@@ -6,7 +6,6 @@ import Footer from './components/pages/Footer'
 import NotesList from './components/notes/NotesList'
 import NoteAdd from './components/notes/NoteAdd'
 import NoteEdit from './components/notes/NoteEdit'
-import NoteInfo from './components/notes/NoteInfo'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -27,7 +26,7 @@ function Main(){
       <Route exact path='/' component={NotesList} />
       <Route exact path='/notes' component={NotesList} />
       <Route exact path='/notes/new' component={NoteAdd} />
-      <Route exact path='/notes/:id' component={NoteInfo} />
+      <Route exact path='/notes/:id' component={NotesList} />
       <Route exact path='/notes/:id/edit' component={NoteEdit} />
     </Switch>
   )

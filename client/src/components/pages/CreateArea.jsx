@@ -7,10 +7,21 @@ function CreateArea(props) {
   return (
     <div>
       <form className="create-note">
-        <input value={props.titleValue} name="title" placeholder="Title" onChange={props.changed} />
-        <textarea value={props.contentValue} name="content" placeholder="Take a note..." rows="3" onChange={props.changed} />
+        {props.expanded && (
+          <input value={props.titleValue} name="title" placeholder="Title" onChange={props.changed} />
+        )}
         
-        <button onClick={props.clicked}><AddIcon /></button>
+        <textarea 
+          onClick={props.textAreaClicked}
+          value={props.contentValue} 
+          name="content" 
+          placeholder="Take a note..." 
+          rows={props.expanded ? "3" : "1"} 
+          onChange={props.changed} />
+        <Zoom in={props.expanded}>
+          <button onClick={props.clicked}><AddIcon /></button> 
+        </Zoom>
+        
       </form>
     </div>
   )

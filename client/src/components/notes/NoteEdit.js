@@ -29,7 +29,7 @@ function NoteEdit(props) {
     async function updateNote(){
       try {
         await patch(`/api/notes/${note._id}`, note)
-        props.history.push('/')
+        props.history.push('/notes')
       } catch (error) {
         console.log(error)        
       }

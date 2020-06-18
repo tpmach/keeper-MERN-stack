@@ -2,21 +2,20 @@ import React, { useState } from 'react'
 import { post } from 'axios'
 import CreateArea from '../pages/CreateArea'
 
-//CHALLENGE:
-//1. Implement the add note functionality.
-//- Create a constant that keeps track of the title and content.
-//- Pass the new note back to the App.
-//- Add new note to an array.
-//- Take array and render seperate Note components for each item.
-
 function NoteAdd(props) {
   const [note, setNote] = useState({
     title:"",
     content:""
   })
 
+  const [isExpanded, setExpand] = useState(false)
+
   function handleChange(event){
     setNote({ ...note, [event.target.name]: event.target.value })
+  }
+
+  function expand(){
+    setExpand(true)
   }
 
   function addNote(event){
@@ -24,7 +23,7 @@ function NoteAdd(props) {
     async function postNote(){
       try {
         const response = await post('/api/notes', note)
-        props.history.push('/notes')
+        props.history.push(`/notes`)
       } catch (error) {
         console.log(error)
       }
@@ -34,10 +33,12 @@ function NoteAdd(props) {
 
   return (
     <CreateArea 
+      expanded = {isExpanded}
       titleValue={note.title || ''}
       contentValue={note.content || ''}
       changed={handleChange}
       clicked={addNote}
+      textAreaClicked={expand}
     />
   )
 }
