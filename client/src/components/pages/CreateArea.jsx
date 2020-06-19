@@ -1,6 +1,5 @@
 import React from "react";
 import AddIcon from "@material-ui/icons/Add";
-import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
 
 function CreateArea(props) {
@@ -8,7 +7,7 @@ function CreateArea(props) {
     <div>
       <form className="create-note">
         {props.expanded && (
-          <input value={props.titleValue} name="title" placeholder="Title" onChange={props.changed} />
+          <input value={props.titleValue} name="title" placeholder="Title" onChange={props.changed} autoFocus="true"/>
         )}
         
         <textarea 

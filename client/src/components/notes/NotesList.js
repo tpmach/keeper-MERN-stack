@@ -12,7 +12,6 @@ function NotesList(props) {
     async function getNotes() {
       try {
         const response = await axios.get('/api/notes')
-        console.log(response.data);
         setNotes(response.data)
       } catch (error) {
         console.log(error)
