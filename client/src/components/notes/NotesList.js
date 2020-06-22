@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-//import { Link } from 'react-router-dom'
 import Note from '../pages/Note'
-//import CreateArea from '../pages/CreateArea'
 import NoteAdd from '../notes/NoteAdd'
 
 function NotesList(props) {

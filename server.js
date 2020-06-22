@@ -4,9 +4,10 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const router = require('./routes/index')
 const path = require('path')
-require ('dotenv').config
+require('dotenv').config()
 
 const PORT = process.env.PORT || 8000
+const LOCAL_DB = 'mongdb://localhost:27017/noteKeeperDB'
 
 const app = express()
 app.use(cors())
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json())
 app.use('/api', router)
 
-mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URL || LOCAL_DB, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connection.once('open', () => {
   console.log('Connected to the database')
 })
