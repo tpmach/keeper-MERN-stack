@@ -24,7 +24,6 @@ router.get('/notes/:id', (req, res) => {
 // MARK: Create - Post a new note
 router.post('/notes', (req, res) => {
   let note = new Note(req.body)
-  console.log(note)
   note.save()
     .then(note => {
       res.send(note)

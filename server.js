@@ -7,7 +7,7 @@ const path = require('path')
 require('dotenv').config()
 
 const PORT = process.env.PORT || 8000
-const LOCAL_DB = 'mongdb://localhost:27017/noteKeeperDB'
+const LOCAL_DB = 'mongdb://127.0.0.1:27017/noteKeeperDB'
 
 const app = express()
 app.use(cors())
@@ -23,7 +23,7 @@ mongoose.connection.on('error', (error) => {
   console.log(`Mongoose connection error:${error}`)
 })
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/built'))
 
   app.get('*', (req, res) => {
