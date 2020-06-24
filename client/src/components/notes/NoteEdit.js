@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { get, patch } from 'axios'
 import CheckIcon from '@material-ui/icons/Check';
-import Fab from "@material-ui/core/Fab";
 
 function NoteEdit(props) {
   const [note, setNote] = useState({

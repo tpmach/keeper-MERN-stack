@@ -22,7 +22,7 @@ function NoteAdd(props) {
     if (!note.title || !note.content) return
     async function postNote(){
       try {
-        const response = await post('/api/notes', note)
+        await post('/api/notes', note)
         props.history.push(`/notes`)
       } catch (error) {
         console.log(error)
